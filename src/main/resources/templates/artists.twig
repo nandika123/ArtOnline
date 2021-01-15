@@ -1,0 +1,35 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <header>
+        <div class="bg-image">
+            <!-- Fix form -->
+            <h2 class="ft-rw">Artists</h2>
+            <!-- Fix form -->
+        </div>
+    </header>
+
+    <div class="wrapper-table">
+        <section>
+            <h2 class="table-title ft-rw">List of all Artists</h2>
+            <table>
+                <tr class="table-head ft-rw">
+                    <th> Artist Name </th>
+                    <th> Email Id </th>
+                    <th> Painting Style </th> 
+                    <th> Experience </th> 
+                    <th> License </th>
+                </tr>
+                {% for row in artists %}
+                    <tr>
+                        <td>{{ row.first_name }} {{row.last_name}}</td>
+                        <td> {{ row.email_id }}</td>
+                        <td> {{ row.painting_style }}</td>
+                        <td> {{ row.experience }} </td>
+                        <td> {{ row.license }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </section>
+    </div>
+{% endblock %}

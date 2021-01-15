@@ -1,0 +1,30 @@
+{% extends 'adminBase.twig' %}
+
+{% block content %}
+    <header>
+        <div class="bg-image">
+        </div>
+    </header>
+
+    <div class="wrapper-table">
+        <section>
+            <h2 class="table-title ft-rw">List of all Galleries</h2>
+            <table>
+                <tr class="table-head ft-rw">
+                    <th>Gallery ID </th> 
+                    <th> Name </th>
+                    <th> Email ID </th> 
+                    <th> Delete </th> 
+                </tr> 
+                {% for row in galleries %}
+                    <tr>
+                        <td>{{ row.gallery_id }}</td>
+                        <td> {{ row.gallery_name }}</td>
+                        <td> {{ row.email_id }}</td>
+                        <td> <a href="/admin/removeGallery/{{ row.gallery_id }}"><span class="detail-button fc-white txt-sb"> Remove </span></a></td> 
+                    </tr>
+                {% endfor %}
+            </table>
+        </section>
+    </div>
+{% endblock %}

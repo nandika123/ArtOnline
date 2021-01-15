@@ -1,0 +1,67 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+<header class="gen_header">
+    <div class="bg-image">
+        <h2 class="ft-rw"> Order Details </h2>
+    </div>
+</header>
+
+<div class="wrapper-table">
+    <section>
+        <h3 class="ft-lt"> Order Info : </h3>
+        <table>
+            <tr class="table-head ft-rw">
+                <th>Key</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td> Order ID </td>
+                <td> {{ order.order_id }}</td>
+            </tr>
+            <tr>
+                <td> Order Date </td>
+                <td> {{ order.order_date}} </td>
+            </tr>
+            <tr>
+                <td> Order Time </td>
+                <td> {{ order.order_time }}</td>
+            </tr>
+            <tr>
+                <td> Bill Amount </td>
+                <td> {{ order.bill_amount }} </td>
+            </tr>
+        </table>
+
+        <h3 class="ft-lt">Paintings Info : </h3>
+        <table>
+            <tr class="table-head ft-rw">
+                <th>Painting Id</th>
+                <th>Status</th>
+                <th> Action </th> 
+            </tr>
+            {% for row in paintings %}
+            <tr>
+                <td> {{ row.painting_id }}</td>
+                <td> {{ row.painting_status }}</td>
+                <td>
+                    {% if row.painting_status == "ordered" %}
+                    <a href="/self/order/{{ order.order_id }}/mark/cancel/{{row.painting_id}}"> <span class="detail-button-lg fc-white txt-sb">Cancel Order</span></a>
+                    {% if row.painting_status != "delivered" %}
+                <a href="/self/order/{{ order.order_id }}/mark/delivered/{{row.painting_id}}"> <span class="detail-button-lg fc-white txt-sb">Mark Delivered </span></a>
+                    {% endif %}
+                {% endif %}
+                {% if row.painting_status == "delivered" %}
+                 <a href="/self/order/{{ order.order_id }}/add_review/{{row.painting_id}}"><span class="detail-button fc-white txt-sb">Add Review</span></a>
+                 {% else %}
+                    Enjoy!
+                 {% endif %}
+
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </section>
+</div>
+{% endblock %}

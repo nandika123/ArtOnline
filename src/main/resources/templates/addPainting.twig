@@ -1,0 +1,32 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+<header class="gen_header">
+    <div class="bg-image">
+        <h1 class="ft-rw"> Add Painting Details </h1>
+    </div>
+</header>
+
+<div class="wrapper-form">
+    <section id="about">
+        <form class="post-forms" action="/account/add_painting" method="POST" id="painting_form">
+            <input type="text" placeholder="Painting Name"  name="name" required/><br>
+            <input type="number" step="0.01" placeholder="Price" name= "price" required/><br> 
+            <input type= "number" step="0.01" min= "0" placeholder= "Length" name= "length" required/><br>
+            <input type= "number" step="0.01" min= "0" placeholder= "Breadth" name= "breadth" required/><br>
+            <input type="number" name="is_framed" min="0" max="1" placeholder= "Is Framed ?" name= "is_framed" required><br>
+
+            <h3>Add Artist Details </h3>
+            <input type= "text" placeholder="First Name" name= "first_name" required/><br>
+            <input type= "text" placeholder="Last Name" name= "last_name"required/><br>
+            <input type= "text" placeholder="Email Id" name= "email_id"required/><br>
+            <input type= "text" placeholder="Painting Style" name= "painting_style"required/><br>
+            <input type= "number" min=0 placeholder="Experience" name= "experience"required/><br>
+            <input type= "text" placeholder= "License" name= "license" required/><br>
+            
+            <input type="submit" value="Add Painting" />
+        </form>
+    </section>
+</div>
+{% endblock %}
+

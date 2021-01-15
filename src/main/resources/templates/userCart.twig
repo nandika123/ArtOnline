@@ -1,0 +1,35 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+<header class="gen_header">
+    <div class="bg-image">
+        <h2 class="ft-rw">Cart Items</h2>
+    </div>
+</header>
+
+<div class="wrapper-table">
+    <section>
+        <table>
+            <tr class="table-head ft-rw">
+                <th> Sl. No. </th>
+                <th> Painting Name </th>
+                <th> Is Framed? </th>
+                <th> Price </th>
+                <th> Remove </th> 
+            </tr>
+            {% for row in paintings %}
+            <tr>
+                <td> {{ loop.index }}</td>
+                <td> {{ row.name }}</td>
+                <td> {{ row.is_framed }}</td>
+                <td> {{ row.price }}</td>
+                <td> <a href="/self/cart/remove/{{row.painting_id}}"><span class="detail-button-lg fc-white txt-sb"> remove </span></a> </td> 
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>Cart Total: </h3> {{cart}} <br> 
+        <a href="/self/order/place_order"><span class="detail-button-lg fc-white txt-sb"> Place Order </span></a>
+    </section>
+</div>
+{% endblock %}

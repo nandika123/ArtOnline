@@ -1,0 +1,35 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+<header class="gen_header">
+    <div class="bg-image">
+        <h2 class="ft-rw"> Gallery Inventory </h2>
+    </div>
+</header>
+
+<div class="wrapper-table">
+    <section>
+        <h2 class="sec_title ft-rw">List of All Paintings in Gallery</h2>
+        <table>
+            <tr class="table-head ft-rw">
+                <th> Painting Name </th>
+                <th> Price </th>
+                <th> Is Framed? </th>
+                <th> Dimensions </th>
+                <th> Image </th> 
+                <th> Buy </th> 
+            </tr>
+            {% for row in paintings %}
+            <tr>
+                <td> {{ row.name }}</td>
+                <td> {{ row.price }}</td>
+                <td> {{ row.is_framed }}</td>
+                <td> {{ row.length }} x {{row.breadth}}</td>
+                <td><img src="{{row.image_path}}" alt="image"/></td> 
+                <td> <a href="/self/cart/add/{{row.painting_id}}"><span class="detail-button-lg fc-white txt-sb">Add to Cart</span></a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+</div>
+{% endblock %}

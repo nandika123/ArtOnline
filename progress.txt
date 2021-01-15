@@ -1,0 +1,28 @@
+1. models done
+2. pom.xml done
+3. repositories done
+4. service done
+5. validators done
+
+
+
+// address        //
+// user           //
+// genDrugs       //
+// drugs         //
+// userPhone
+// add of user    //
+// drug comp      //
+// drug batch    //
+// shop            //
+// shop inventory   //
+// orders          //
+// shop phone
+// gendrug comp
+// items ordered   //
+// owner
+// reviews         //
+
+
+drug composition, - id, name, percent, gen)id
+comp - id, name

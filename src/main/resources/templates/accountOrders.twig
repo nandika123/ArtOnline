@@ -1,0 +1,40 @@
+{% extends 'base.twig' %}
+
+{% block header %}
+{% include 'galleryNav.twig' %}
+{% endblock%}
+
+{% block content %}
+<header class="gen_header">
+    <div class="bg-image">
+        <h1 class="ft-rw"> Gallery Orders </h1>
+    </div>
+</header>
+
+<div class="wrapper-table">
+        <section>
+        {% if orders is not null %}
+            <table>
+                <tr class="table-head ft-rw">
+                    <th> Sl. No. </th>
+                    <th> Order ID </th>
+                    <th> Painting ID </th>
+                    <th> Status </th>
+                </tr>
+                {% for row in orders %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ row.order_id }}</td>
+                    <td> {{ row.painting_id }}</td>
+                    <td> {{ row.painting_status }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+        </section>
+</div>
+
+<script>
+</script>
+{% endblock %}
+

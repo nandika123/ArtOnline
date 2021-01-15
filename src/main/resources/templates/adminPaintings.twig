@@ -1,0 +1,32 @@
+{% extends 'adminBase.twig' %}
+
+{% block content %}
+    <header>
+        <div class="bg-image">
+        </div>
+    </header>
+
+    <div class="wrapper-table">
+        <section>
+            <h2 class="table-title ft-rw">List of all Paintings</h2>
+            <table>
+                <tr class="table-head ft-rw">
+                    <th> Name </th>
+                    <th> Is Framed ? </th>
+                    <th> Dimensions </th> 
+                    <th> Price </th> 
+                    <th> Action </th>
+                </tr>
+                {% for row in paintings %}
+                    <tr>
+                        <td>{{ row.name }}</td>
+                        <td> {{ row.is_framed }}</td>
+                        <td> {{ row.length }} x {{row.breadth}}</td>
+                        <td> {{ row.price }}</td>
+                        <td><a href="/admin/removePainting/{{ row.painting_id }}"><span class="detail-button fc-white txt-sb"> Remove </span></a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </section>
+    </div>
+{% endblock %}

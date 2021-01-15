@@ -1,0 +1,58 @@
+{% extends 'base.twig' %}
+{% block header %}
+<header>
+    <div class="bg-image">
+        
+    </div>
+</header>
+
+<div class="wrapper-table">
+    <section>
+        <h2 class="table-title ft-rw">{{ gallery.gallery_name }}</h2>
+        <table>
+            <tr class="table-head ft-rw">
+                <th> Key </th>
+                <th> Value </th>
+            </tr>
+            <tr>
+                <td> Name </td>
+                <td> {{ gallery.gallery_name }}</td>
+            </tr>
+            <tr>
+                <td> Email ID </td>
+                <td> {{ gallery.email_id }}</td>
+            </tr>
+            <tr>
+                <td> License No. </td>
+                <td> {{ gallery.license }}</td>
+            </tr>
+        </table>
+
+        <h3 class="table-title ft-rw"> Address Details : </h3>
+        <table>
+            <tr class="table-head ft-rw">
+                <th> Key </th>
+                <th> Value </th>
+            </tr>
+            <tr>
+                <td> Plot No.</td>
+                <td>{{ address.plot_no }}</td>
+            </tr>
+            <tr>
+                <td>Street </td>
+                <td>{{ address.street }}</td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>{{ address.city }}</td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td>{{ address.state }}</td>
+            </tr>
+        </table>
+    </section>
+
+    <a href="/gallery/{{ gallery_id}}/inventory"> <span class="detail-button-lg fc-white txt-sb"> Check Items</span> </a>
+</div>
+{% endblock %}

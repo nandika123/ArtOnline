@@ -1,0 +1,39 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+<header>
+    <div class="bg-image">
+        
+    </div>
+</header>
+
+<div class="wrapper-table">
+    <section>
+        <h2 class="table-title ft-rw">{{ painting.name }}</h2>
+        <table>
+            <tr class="table-head ft-rw">
+                <th> Key </th>
+                <th> Value </th>
+            </tr>
+            <tr>
+                <td> Name </td>
+                <td> {{ painting.name }}</td>
+            </tr>
+            <tr>
+                <td> Artist Name </td>
+                <td> {{ artist.first_name }} {{artist.last_name}}</td>
+            </tr>
+            <tr>
+                <td> Is Framed ? </td>
+                <td> {{ painting.is_framed }}</td>
+            </tr>
+            <tr> 
+                <td> Image </td>
+                <td><img src="{{painting.image_path}}" alt="image"/></td>
+            </tr> 
+        </table>
+        {#/self/add_to_cart/painting/{{painting.painting_id}}#}
+        <a href="/self/cart/add/{{painting_id}}"><span class="detail-button-lg fc-white txt-sb">Add to Cart</span></a>
+    </section>
+</div>
+{% endblock %}
